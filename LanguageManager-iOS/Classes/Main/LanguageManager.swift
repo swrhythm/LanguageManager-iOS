@@ -54,9 +54,7 @@ public class LanguageManager {
   public private(set) var currentLanguage: Languages {
     get {
       guard let currentLang = storage.string(forKey: .selectedLanguage) else {
-        LanguageManager.shared.defaultLanguage = .deviceLanguage
-        LanguageManager.shared.currentLanguage = .deviceLanguage
-        return Languages(rawValue: storage.string(forKey: .selectedLanguage) ?? "en")!
+        return .deviceLanguage
       }
       return Languages(rawValue: currentLang)!
     }
@@ -73,9 +71,7 @@ public class LanguageManager {
   public var defaultLanguage: Languages {
     get {
       guard let defaultLanguage = storage.string(forKey: .defaultLanguage) else {
-        LanguageManager.shared.defaultLanguage = .deviceLanguage
-        LanguageManager.shared.currentLanguage = .deviceLanguage
-        return Languages(rawValue: storage.string(forKey: .selectedLanguage) ?? "en")!
+        return .deviceLanguage
       }
       return Languages(rawValue: defaultLanguage)!
     }
