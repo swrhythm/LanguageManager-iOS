@@ -54,7 +54,7 @@ public class LanguageManager {
   public private(set) var currentLanguage: Languages {
     get {
       guard let currentLang = storage.string(forKey: .selectedLanguage) else {
-        return .deviceLanguage
+        return Languages.en
       }
       return Languages(rawValue: currentLang)!
     }
@@ -71,7 +71,7 @@ public class LanguageManager {
   public var defaultLanguage: Languages {
     get {
       guard let defaultLanguage = storage.string(forKey: .defaultLanguage) else {
-        return .deviceLanguage
+        return Languages.en
       }
       return Languages(rawValue: defaultLanguage)!
     }
